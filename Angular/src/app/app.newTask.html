@@ -1,0 +1,160 @@
+<style>
+
+    @media only screen and (min-width: 768px) {
+        body {
+            background-color: floralwhite;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 25px;
+            height: 95vh;
+            width: 87vw;
+            margin: auto;
+
+        }
+
+        article {
+            border: 1px black solid;
+            text-align: center;
+        }
+
+        p {
+            font-size: 50px;
+            font-family: cursive;
+            color: #ffbf00;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1.0;
+            }
+
+            50% {
+                opacity: 0.0;
+            }
+
+            100% {
+                opacity: 1.0;
+            }
+        }
+
+        div {
+            width: 75px;
+            position: relative;
+            top: 50%;
+            /* margin: auto; */
+        }
+
+        p:hover {
+            text-decoration: underline;
+            animation: none;
+        }
+
+        div>input {
+            font-size: 35px;
+            animation: blink 2s infinite;
+            cursor: pointer;
+            border-radius: 25px;
+            background-color: rgba(20, 20, 20, 0.5);
+            color: beige;
+        }
+
+        div>input:hover {
+            animation: none;
+        }
+
+        input {
+            font-size: xx-large;
+            height: 50px;
+            font-family: cursive;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+
+        body {
+            background-color: floralwhite;
+        }
+
+        article {
+            height: 50vh;
+        }
+
+        p {
+            font-size: 25px;
+            font-family: cursive;
+            color: #ffbf00;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1.0;
+            }
+
+            50% {
+                opacity: 0.0;
+            }
+
+            100% {
+                opacity: 1.0;
+            }
+        }
+
+        p:hover {
+            text-decoration: underline;
+            animation: none;
+        }
+
+        article {
+            text-align: center;
+        }
+
+        div>input {
+            font-size: 35px;
+            animation: blink 2s infinite;
+            cursor: pointer;
+            border-radius: 25px;
+            background-color: rgba(20, 20, 20, 0.5);
+            color: beige;
+
+        }
+
+        div>input:hover {
+            animation: none;
+        }
+
+        input {
+            font-size: xx-large;
+            height: 50px;
+            font-family: cursive;
+            width: 300px;
+        }
+
+        div {
+            position: relative;
+            top: 50%;
+        }
+
+        article.adjust {
+            margin-top: 22px;
+        }
+    }
+</style>
+
+    <p>Task Name</p>
+    <input type="text" [(ngModel)]="name" required>
+
+    <p>Description</p>
+    <input type="text" [(ngModel)]="description" required>
+
+    <p>Deadline</p>
+    <input type="datetime-local" [(ngModel)]="deadline" required><br><br>
+
+    <div>
+        <input type="submit" value="Add Item" (click)="createTask()">
+    </div>
+    <p>{{_errorMessage}}</p>

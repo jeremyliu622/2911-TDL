@@ -1,0 +1,219 @@
+<style>
+    @media only screen and (min-width: 768px) {
+        body {
+            background-image: url('https://cdn.pixabay.com/photo/2014/01/23/21/35/pink-250777_1280.jpg');
+        }
+
+        p,
+        h1 {
+            /* Fallback: Set a background color. */
+            background-color: #CA4246;
+
+            /* Create the gradient. */
+            background-image: linear-gradient(45deg,
+                    #CA4246 16.666%,
+                    #E16541 16.666%,
+                    #E16541 33.333%,
+                    #F18F43 33.333%,
+                    #F18F43 50%,
+                    #8B9862 50%,
+                    #8B9862 66.666%,
+                    #476098 66.666%,
+                    #476098 83.333%,
+                    #A7489B 83.333%);
+
+            /* Set the background size and repeat properties. */
+            background-size: 100%;
+            background-repeat: repeat;
+
+            /* Use the text as a mask for the background. */
+            /* This will show the gradient as a text color rather than element bg. */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            /* Animate the text when loading the element. */
+            /* This animates it on page load and when hovering out. */
+            animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+
+        }
+
+        /* Move the background and make it smaller. */
+        /* Animation shown when entering the page and after the hover animation. */
+        @keyframes rainbow-text-simple-animation-rev {
+            0% {
+                background-size: 650%;
+            }
+
+            40% {
+                background-size: 650%;
+            }
+
+            100% {
+                background-size: 100%;
+            }
+        }
+
+        /* Move the background and make it larger. */
+        /* Animation shown when hovering over the text. */
+        @keyframes rainbow-text-simple-animation {
+            0% {
+                background-size: 100%;
+            }
+
+            80% {
+                background-size: 650%;
+            }
+
+            100% {
+                background-size: 650%;
+            }
+        }
+
+        @keyframes example {
+            from {
+                background-color: rgb(174, 238, 24);
+                background-color: aqua;
+                background-color: rgb(45, 187, 197);
+            }
+
+            to {
+                background-color: yellow;
+            }
+        }
+
+        ul li {
+            height: auto;
+            border-left: 3px solid;
+            border-right: 3px solid;
+            border-image:
+                linear-gradient(to bottom,
+                    red,
+                    rgba(0, 0, 0, 0)) 1 100%;
+            list-style-type: none;
+            padding: 50px;
+            background-color: snow;
+            text-align: center;
+
+        }
+
+        p {
+            font-size: 25px;
+        }
+
+        p:hover {
+            animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+        }
+
+
+        ul {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 23px;
+            padding: 0px;
+
+
+        }
+
+        h1 {
+            text-align: center;
+            font-family: cursive;
+            font-size: 50px;
+            width: max-content;
+            margin: auto;
+        }
+
+        h1:hover {
+            animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+            text-decoration: underline red;
+        }
+
+        ul :hover {
+            cursor: pointer;
+        }
+
+        ul li:hover {
+            animation-name: example;
+            animation-duration: 4s;
+        }
+
+        span {
+            font-size: 30px;
+            font-family: cursive;
+        }
+
+        span:hover {
+            text-decoration: underline red;
+        }
+
+        div {
+            text-align: center;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        div {
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: cursive;
+            font-size: 30px;
+            width: max-content;
+            margin: auto;
+            color: red
+        }
+
+        body {
+            background-image: url('https://cdn.pixabay.com/photo/2014/01/23/21/35/pink-250777_1280.jpg');
+        }
+
+        ul {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 10px;
+            padding: 0px;
+            grid-column: wrap;
+        }
+
+        ul li {
+            height: auto;
+            border-left: 3px solid;
+            border-right: 3px solid;
+            border-image:
+                linear-gradient(to bottom,
+                    red,
+                    rgba(0, 0, 0, 0)) 1 100%;
+            list-style-type: none;
+            padding: 50px;
+            background-color: snow;
+            text-align: center;
+        }
+
+        span {
+            font-size: 20px;
+            font-family: cursive;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+    }
+</style>
+
+<div>
+    <h1>Done Tasks</h1>
+</div>
+<ul>
+    <li *ngFor="let task of _sortedTasksArray" (click)="onSelect(task)">
+
+        <p><span>Task Name</span>: {{task.name}}</p>
+        <p><span>Completion Date</span>: {{task.complete | date:"short"}}</p>
+        <div *ngIf="selectedTask===task">
+            <p><span>Description: </span> {{selectedTask.description}}</p>
+            <p><span>Task Date: </span> {{selectedTask.deadline | date:"short"}}</p>
+
+        </div>
+    </li>
+</ul>

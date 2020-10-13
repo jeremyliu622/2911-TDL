@@ -1,0 +1,61 @@
+<style>
+        @media only screen and (min-width: 768px) {
+            table {
+                width:50%;margin:auto
+            }
+        }
+        @media only screen and (max-width: 768px) {
+            table {
+                margin:auto
+            }
+        }
+</style>
+
+
+<table role="form">
+        <p class="h4 mb-4">User Register</p>
+
+        <div class="form-group">
+                <input type="username" name="username" class="form-control input-sm" 
+                placeholder="Username" [(ngModel)]="username"> 
+            </div>
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="form-group">
+                <input type="text" name="first_name" class="form-control input-sm"
+                    placeholder="First Name" [(ngModel)]="firstName">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="form-group">
+                <input type="text" name="last_name"  class="form-control input-sm"
+                    placeholder="Last Name" [(ngModel)]="lastName">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+            <input type="email" name="email"  class="form-control input-sm" placeholder="Email Address" [(ngModel)]="email">
+        </div>
+    
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="form-group">
+                <input type="password" name="password" class="form-control input-sm"
+                    placeholder="Password" [(ngModel)]="password">
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="form-group">
+                <input type="password" name="password_confirmation"
+                    class="form-control input-sm" placeholder="Confirm Password" [(ngModel)]="passwordConfirm">
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" value="Register" class="btn btn-info btn-block" (click)="register()" style="margin-bottom:10px">
+
+    <p class="h4 mb-4" style="color:#ff8000	">{{errorMessage}}</p>
+</table>
+

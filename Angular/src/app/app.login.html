@@ -1,0 +1,34 @@
+    <!-- <br>
+    Username: <input type='text' [(ngModel)]='username'/><br>
+    Password: <input type='text' [(ngModel)]='password'/><br>
+    <input type='button' value='login' (click)='login()'/>
+    <br/><br/>
+
+    {{message}}
+    <br/><br/> -->
+
+
+
+<style>
+    @media only screen and (min-width: 768px) {
+        div {
+            width:50%;margin:auto
+        }
+    }
+    @media only screen and (max-width: 768px) {
+        div {
+            margin:auto
+        }
+    }
+</style>
+<div class="p-5">
+    <p class="text-center h4 mb-4">User Login</p>
+
+    <input type="username" [(ngModel)]='username' id="defaultLoginFormEmail" class="form-control mb-4" placeholder="Username" style="margin-top: 10px">
+
+    <input type="password" [(ngModel)]='password' id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" style="margin-top: 10px">
+
+    <input type="submit" value="Login" class="btn btn-info btn-block" (click)='login()' style="margin-bottom:10px">
+
+    <p class="h4 mb-4" style="color:#ff8000	">Please login to check your tasks.</p>
+</div>

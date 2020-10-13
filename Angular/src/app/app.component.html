@@ -1,0 +1,42 @@
+<style>
+    body {
+        background-image: url('https://cdn.pixabay.com/photo/2018/06/20/08/05/august-3485999_1280.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        height: 100vh;
+        overflow: auto;
+    }
+</style>
+
+
+
+{{updateLinks()}}
+
+
+<body>
+
+    <div class="container">
+
+        <nav class="navbar navbar-light">
+            <h5 [hidden]="auth_token">
+                <a routerLink="/register" routerLinkActive="active">Register</a> |
+                <a routerLink="/login" routerLinkActive="active">Login</a>
+            </h5>
+            <h5 *ngIf='auth_token'>
+                <a routerLink="/" routerLinkActive="active" (click)='logout()'>Logout ({{username}})</a>
+            </h5>
+            <h5 *ngIf='auth_token'>
+                <a routerLink="/main" routerLinkActive="active">Tasks</a> |
+                <a routerLink="/done" routerLinkActive="active">Done</a> |
+                <a routerLink="/new" routerLinkActive="active">New Task</a>
+            </h5>
+
+        </nav>
+        <br>
+
+
+        <router-outlet></router-outlet>
+    </div>
+
+</body>
